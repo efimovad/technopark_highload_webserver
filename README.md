@@ -16,6 +16,6 @@ $:ab -n 10000 -c 100 127.0.0.1:8080/httptest/wikipedia_russia.html
 ![ab epoll](benchmarks/epoll.png?raw=true "Epoll")
 
 #### Nginx 
-![nginx epoll](benchmarks/path/nginx.png?raw=true "Nginx")
+![nginx epoll](benchmarks/nginx.png?raw=true "Nginx")
 run nginx with:
 `$:docker run -it -v /var/www/html:/usr/share/nginx/html:ro -p 8080:80 nginx`
