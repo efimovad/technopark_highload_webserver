@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct {
+typedef struct {
     int cpu_limit;
     int thread_limit;
     char document_root[100];
-} typedef Config;
+} Config;
 
 
 Config * parse_config(char *filename);
