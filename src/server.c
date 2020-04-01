@@ -313,7 +313,7 @@ void* worker(void* dat) {
     
     
     while (1) {
-        printf("[%ld] wait\n",  syscall(__NR_gettid));
+        //printf("[%ld] wait\n",  syscall(__NR_gettid));
         int nready = epoll_wait(epollfd, events, MAXFDS, -1);
        
         for (int i = 0; i < nready; i++) {
@@ -363,7 +363,7 @@ int main(int argc, char **argv) {
     make_socket_non_blocking(parentfd);
    
     int epollfd = configure_epoll(parentfd);
-    int pthnum = 1;	
+    int pthnum = 2;	
     pthread_t * threads = (pthread_t*)malloc(pthnum * sizeof(pthread_t));	
     	
     for (int i = 0; i < pthnum; i++) {	

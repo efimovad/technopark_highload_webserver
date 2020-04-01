@@ -59,8 +59,8 @@ int parse_request(FILE * stream, Request * request) {
     char buf[BUFSIZE];
     //fgets(buf, BUFSIZE, stream);
     if (!fgets(buf, BUFSIZE, stream)) {
-        printf("WAIT 1\n");
-        if (errno == EAGAIN) printf("EAGAIN\n");    
+        //printf("WAIT 1\n");
+        //if (errno == EAGAIN) printf("EAGAIN\n");    
         return WAIT;
     }
     
@@ -72,7 +72,7 @@ int parse_request(FILE * stream, Request * request) {
     }
     
     if (!fgets(buf, BUFSIZE, stream)) {
-        printf("WAIT 2 \n");   
+        //printf("WAIT 2 \n");   
         return WAIT;
     }
     
