@@ -9,7 +9,7 @@ SRCS = \
 .PHONY: all clean
 
 all: $(SRCS)
-	$(CC) -Wall -Wextra -Werror -I $(HDRS_DIR) -o $(TARGET) $(CFLAGS) $(SRCS)
+	$(CC) -Wall -Wextra -Werror -I $(HDRS_DIR) -o $(TARGET) $(CFLAGS) $(SRCS) -lpthread
 
 test: $(eval override CFLAGS +=-D test=0)
 	make all

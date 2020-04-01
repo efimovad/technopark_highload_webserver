@@ -1,5 +1,7 @@
 #include "http_parser.h"
 
+#include <errno.h>
+
 char *get_mime_type(char *filename) {
     if (strstr(filename, ".html"))
         return "text/html";
@@ -55,7 +57,10 @@ void urldecode2(char *dst, const char *src) {
 
 int parse_request(FILE * stream, Request * request) {
     char buf[BUFSIZE];
-    if (!fgets(buf, BUFSIZE, stream)) {   
+    //fgets(buf, BUFSIZE, stream);
+    if (!fgets(buf, BUFSIZE, stream)) {
+        printf("WAIT 1\n");
+        if (errno == EAGAIN) printf("EAGAIN\n");    
         return WAIT;
     }
     
@@ -67,6 +72,7 @@ int parse_request(FILE * stream, Request * request) {
     }
     
     if (!fgets(buf, BUFSIZE, stream)) {
+        printf("WAIT 2 \n");   
         return WAIT;
     }
     
